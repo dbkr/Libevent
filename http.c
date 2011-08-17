@@ -624,6 +624,12 @@ evhttp_make_header(struct evhttp_connection *evcon, struct evhttp_request *req)
 	}
 }
 
+int
+evhttp_request_alive(struct evhttp_request *req)
+{
+	return req->evcon && evhttp_connected(req->evcon);
+}
+
 void
 evhttp_connection_set_max_headers_size(struct evhttp_connection *evcon,
     ev_ssize_t new_max_headers_size)

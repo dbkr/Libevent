@@ -216,6 +216,8 @@ void evhttp_set_allowed_methods(struct evhttp* http, ev_uint16_t methods);
 int evhttp_set_cb(struct evhttp *http, const char *path,
     void (*cb)(struct evhttp_request *, void *), void *cb_arg);
 
+int evhttp_request_alive(struct evhttp_request *req);
+
 /** Removes the callback for a specified URI */
 int evhttp_del_cb(struct evhttp *, const char *);
 
